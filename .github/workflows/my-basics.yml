@@ -25,11 +25,13 @@ jobs:
       # Runs a single command using the runners shell
       - name: Print Hello
         run: echo "Hello World from Testing"
-      - name: Execute fiw commands
+      - name: Execute few commands
         run: |
           echo "Hello Message1"
           echo "Hello Message2"
           echo "Aplication name: ${{ env.APLICATION_NAME }}"
+      - name: List current folder
+        run: ls -la
          
   my_deploy:
     runs-on: ubuntu-latest
