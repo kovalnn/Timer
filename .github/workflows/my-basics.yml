@@ -1,6 +1,9 @@
 # This is a basic workflow to help you get started with Actions
 
 name: GitHub-Actions
+env:
+  APLICATION_NAME    : "MyFlask"
+  DEPLOY_PACKAGE_NAME: "flask-deploy-ver-${{ github.sha }}"
 
 # Controls when the workflow will run
 on:
@@ -22,6 +25,11 @@ jobs:
       # Runs a single command using the runners shell
       - name: Print Hello
         run: echo "Hello World from Testing"
+      - name: Execute fiw commands
+        run: |
+          echo "Hello Message1"
+          echo "Hello Message2"
+          echo "Aplication name: ${{ env.APLICATION_NAME }}"
          
   my_deploy:
     runs-on: ubuntu-latest
@@ -29,4 +37,7 @@ jobs:
     steps: 
     - name: Print Hello
       run: echo "Hello World from Deploy"
+      
+    - name: Printing Deployment package
+      run: echo "Deploy package name is ${{ env.DEPLOY_PACKAGE_NAME }}"
     
